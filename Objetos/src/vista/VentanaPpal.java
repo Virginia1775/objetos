@@ -37,6 +37,7 @@ public class VentanaPpal extends JFrame {
 	private JTextArea txtPersonas;
 	private JScrollPane scrollPane;
 	private ArrayList<Persona> listaPersonas;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.
@@ -120,7 +121,7 @@ public class VentanaPpal extends JFrame {
 				insertarPersona();
 			}
 		});
-		contentPane.add(btnNewButton, "cell 0 4 8 1,alignx center");
+		contentPane.add(btnNewButton, "flowx,cell 0 4 8 1,alignx center");
 		
 		lblNewLabel_6 = new JLabel("Personas:");
 		contentPane.add(lblNewLabel_6, "cell 0 5,alignx right,aligny top");
@@ -131,6 +132,37 @@ public class VentanaPpal extends JFrame {
 		txtPersonas = new JTextArea();
 		txtPersonas.setEditable(false);
 		scrollPane.setViewportView(txtPersonas);
+		
+		btnNewButton_1 = new JButton("Buscar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				buscarPersona();
+			}
+		});
+		contentPane.add(btnNewButton_1, "cell 6 4");
+	}
+
+	public void buscarPersona() {
+		Persona p = new Persona();
+		p.setDni(txtDni.getText());
+		
+		int posicion=listaPersonas.indexOf(p);
+		if (posicion ==-1) {
+			txtPersonas.setText("Persona no eencontrad");
+		} else {
+			p=listaPersonas.get(posicion);
+			//txtPersonas.setText(p.toString());
+			txtNombre.setText(p.getNombre());
+			txtApellidos.setText(p.getApellidos());
+			txtDia.setText(""+p.getDia());
+			txtMes.setText(""+p.getMes());
+			txtAño.setText(""+p.getAño());
+		}
+		
+		
+		
+		
+		
 	}
 
 	public void insertarPersona() {

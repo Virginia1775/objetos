@@ -63,6 +63,18 @@ public class Persona {
 		return this.fechaNac.until(LocalDate.now(),ChronoUnit.YEARS);
 	}
 	
+	public int getDia() {
+		return this.fechaNac.getDayOfMonth();
+	}
+	
+	public int getMes() {
+		return this.fechaNac.getMonthValue();
+	}
+	
+	public int getAño() {
+		return this.fechaNac.getYear();
+	}
+	
 
 	public String getDni() {
 		return dni;
