@@ -3,6 +3,8 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
+import excepciones.DNIIncorrecto;
+
 /**
  * 
  */
@@ -80,7 +82,11 @@ public class Persona {
 		return dni;
 	}
 
-	public void setDni(String dni) {
+	public void setDni(String dni) throws DNIIncorrecto {
+		
+		if (dni.length()!=9) {
+			throw new DNIIncorrecto("EL DNI Debe tener 9 caracteres");
+		}
 		this.dni = dni;
 	}
 
@@ -101,13 +107,15 @@ public class Persona {
 			return true;
 		if (obj == null)
 			return false;
-		if (obj instanceof String)
-			dni.equals((String)obj);
 		if (getClass() != obj.getClass())
 			return false;
 		Persona other = (Persona) obj;
 		return Objects.equals(dni, other.dni);
 	}
+
+	
+
+
 
 	
 	

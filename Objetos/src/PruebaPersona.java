@@ -20,7 +20,7 @@ public class PruebaPersona {
 		p.setNombre("David");
 		p.setApellidos("Casas");
 		p.setFechaNac(3, 6, 1979);
-		p.setDni("30000000");
+		//p.setDni("30000000");
 		
 		Persona p2 = new Persona("Ana", "Pérez", "40000000");
 		
